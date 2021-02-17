@@ -1,7 +1,10 @@
 name = "ELM"
 uuid = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"
-authors = ["Gabriel Baraldi <baraldi@usp.br> and contributors"]
+authors = ["Gabriel Baraldi"]
 version = "0.1.0"
+
+[deps]
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [compat]
 julia = "1.6"
