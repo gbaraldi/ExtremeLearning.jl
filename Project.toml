@@ -1,0 +1,13 @@
+name = "ELM"
+uuid = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"
+authors = ["Gabriel Baraldi <baraldi@usp.br> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.6"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
