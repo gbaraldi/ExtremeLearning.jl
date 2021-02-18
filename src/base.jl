@@ -17,6 +17,11 @@ mutable struct HiddenLayer
     act_func::Function
 end
 
+"""
+    ExtremeLearningMachine(n_hidden_neurons::Integer; C = 100)
+
+Creates an ELM.
+"""
 mutable struct ExtremeLearningMachine
     # Extreme Learning Machine
     #
