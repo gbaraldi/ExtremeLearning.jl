@@ -1,16 +1,16 @@
-using ELM
+using ExtremeLearning
 using Documenter
 
-DocMeta.setdocmeta!(ELM, :DocTestSetup, :(using ELM); recursive=true)
+DocMeta.setdocmeta!(ExtremeLearning, :DocTestSetup, :(using ExtremeLearning); recursive=true)
 
 makedocs(;
-    modules=[ELM],
+    modules=[ExtremeLearning],
     authors="Gabriel Baraldi <baraldi@usp.br> and contributors",
-    repo="https://github.com/gbaraldi/ELM.jl/blob/{commit}{path}#{line}",
-    sitename="ELM.jl",
+    repo="https://github.com/gbaraldi/ExtremeLearning.jl/blob/{commit}{path}#{line}",
+    sitename="ExtremeLearning.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://gbaraldi.github.io/ELM.jl",
+        canonical="https://gbaraldi.github.io/ExtremeLearning.jl",
         assets=String[],
     ),
     pages=[
@@ -19,6 +19,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/gbaraldi/ELM.jl",
+    repo="github.com/gbaraldi/ExtremeLearning.jl",
 )
 

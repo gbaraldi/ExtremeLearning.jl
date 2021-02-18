@@ -1,4 +1,4 @@
-module ELM
+module ExtremeLearning
 
 using LinearAlgebra
 include("base.jl")

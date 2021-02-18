@@ -1,13 +1,13 @@
 ```@meta
-CurrentModule = ELM
+CurrentModule = ExtremeLearning
 ```
 
-# ELM
+# ExtremeLearning
 
 ```@index
 ```
 
 
 ```@autodocs
-Modules = [ELM]
+Modules = [ExtremeLearning]
 ```

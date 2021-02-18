@@ -55,9 +55,9 @@ jobs:
       - run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using ELM
-            DocMeta.setdocmeta!(ELM, :DocTestSetup, :(using ELM); recursive=true)
-            doctest(ELM)'
+            using ExtremeLearning
+            DocMeta.setdocmeta!(ExtremeLearning, :DocTestSetup, :(using ExtremeLearning); recursive=true)
+            doctest(ExtremeLearning)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

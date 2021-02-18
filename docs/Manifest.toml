@@ -35,7 +35,7 @@ git-tree-sha1 = "9b40fd93f54ba5ef9d364981124a8ed389fd634e"
 uuid = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
 version = "0.1.9"
 
-[[ELM]]
+[[ExtremeLearning]]
 deps = ["LinearAlgebra"]
 path = ".."
 uuid = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"

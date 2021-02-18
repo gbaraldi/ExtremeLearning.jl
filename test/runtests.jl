@@ -1,6 +1,6 @@
-using ELM
+using ExtremeLearning
 using Test
 
-@testset "ELM.jl" begin
+@testset "ExtremeLearning.jl" begin
     # Write your tests here.
 end

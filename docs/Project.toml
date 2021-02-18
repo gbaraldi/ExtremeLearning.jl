@@ -1,4 +1,4 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
-ELM = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"
+ExtremeLearning = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"

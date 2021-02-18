@@ -1,15 +1,15 @@
-using ELM
+using ExtremeLearning
 
-elm = ExtremeLearningMachine(100)
+ExtremeLearning = ExtremeLearningMachine(100)
 
 # Testing XOR
 x = [1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0]
 y = [0.0, 1.0, 0.0, 1.0]
 
-fit!(elm, x, y)
+fit!(ExtremeLearning, x, y)
 
-y_pred = predict(elm, [1.0 1.0; 0.0 1.0; 1.0 1.0])
-predict(elm,[0.0 0.0])
+y_pred = predict(ExtremeLearning, [1.0 1.0; 0.0 1.0; 1.0 1.0])
+predict(ExtremeLearning,[0.0 0.0])
 
 
 @assert y_pred[1] < 0.2
