@@ -1,5 +1,3 @@
-a
-using Revise
 using ELM
 
 elm = ExtremeLearningMachine(100)
