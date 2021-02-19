@@ -2,7 +2,7 @@
 # -------------------
 
 function lala()
-    show("a")
+    show("b")
 end
 
 mutable struct HiddenLayer
