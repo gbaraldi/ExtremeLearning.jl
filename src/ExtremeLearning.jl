@@ -2,13 +2,9 @@ module ExtremeLearning
 
 using LinearAlgebra
 include("base.jl")
-export ExtremeLearningMachine
+export ELM
 
+export fit!, predict,ELM
 
-export fit!, predict
-
-# Base code
-
-# Write your package code here.
 
 end
