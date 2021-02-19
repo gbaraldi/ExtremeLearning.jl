@@ -1,6 +1,10 @@
 # Types and functions
 # -------------------
 
+function lala()
+    show("a")
+end
+
 mutable struct HiddenLayer
     # The hidden layer in ELM
     #
