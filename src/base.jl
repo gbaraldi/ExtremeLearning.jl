@@ -79,7 +79,7 @@ end
 
 function fit!(elm::ExtremeLearningMachine,
                 x::Matrix{Float64},
-                y::Vector{Float64})
+                y::Matrix{Float64})
     # Trains the elm using the given training data
     #
     # Parameters
