@@ -1,59 +1,47 @@
 # Types and functions
 # -------------------
 
-function lala()
-    show("b")
-end
-
-mutable struct HiddenLayer
-    # The hidden layer in ELM
-    #
-    # Properties
-    # ----------
-    # `n_hidden_neurons` is an Integer representing the total hidden neurons
-    # `weight_matrix` is the input to hidden layer weight matrix which is randomly chosen
-    # `bias_vector` is the randomly chosen input to hidden layer bias vector
-    # `act_func` is the activation function for hidden neurons
-    
-    n_hidden_neurons::Integer
-    weight_matrix::Matrix{Float64}
-    bias_vector::Vector{Float64}
-    act_func::Function
-end
-
-"""
-    ExtremeLearningMachine(n_hidden_neurons::Integer; C = 100)
-
-Creates an ELM.
-"""
-mutable struct ExtremeLearningMachine
+struct ELM{T,I, S<:AbstractArray{T}, F}
     # Extreme Learning Machine
     #
     # Properties
     # ----------
     # `hidden_layer` is the hidden layer inside this ELM
     # `output_weights` is the weight matrix calculated during training
-    # `C` is the regularisation parameter that improves generalisation (not implemented as of now)
+    # `betais the regularisation parameter that improves generalisation (not implemented as of now)
+    β::T 
+    n_hidden_neurons::I
+    weight_matrix::S
+    bias_vector::S
+    act_func::F
+    output_weights::S
     
-    hidden_layer::HiddenLayer
-    output_weights::Matrix{Float64}
-    C::Integer
 	
-    function ExtremeLearningMachine(n_hidden_neurons::Integer;
-                                    C = 100)
-        this = new()
-        this.C = C
-	
-        weight_matrix = rand(0, 0)
-        bias_vector = rand(n_hidden_neurons)
-        this.hidden_layer = HiddenLayer(n_hidden_neurons, weight_matrix, bias_vector, sigmoid)
-        this
-    end
+
+end
+
+
+function ELM(n_hidden_neurons::Int,
+        input_data::AbstractArray{T},
+        output_data::AbstractArray{T};
+        activation::Function = sigmoid,
+        reg::T = 0.0) where T<:AbstractFloat
+
+    in_size = size(train_data, 1)
+    out_size = size(output_data, 1)
+    weight_matrix = rand(n_hidden_neurons, in_size) .* 2 .- 1
+    output_weights = zeros(n_hidden_neurons,out_size)
+    bias_vector = rand(n_hidden_neurons)
+    return ELM(n_hidden_neurons,
+            weight_matrix,
+            bias_vector, 
+            activation,
+            output_weights)
+
 end
 
 function sigmoid(x)
     # Sigmoid activation
-    
     1 ./ (1 + exp(-x))
 end
 
@@ -82,8 +70,8 @@ function find_activations(layer::HiddenLayer,
 end 
 
 function fit!(elm::ExtremeLearningMachine,
-                x::Matrix{Float64},
-                y::Matrix{Float64})
+                x::AbstractArray{Float64},
+                y::AbstractArray{Float64})
     # Trains the elm using the given training data
     #
     # Parameters
@@ -95,12 +83,15 @@ function fit!(elm::ExtremeLearningMachine,
 
     y_vec = copy(y)
     n_observations, n_inputs = size(x_mat) 
-    elm.hidden_layer.weight_matrix =  rand(elm.hidden_layer.n_hidden_neurons, n_inputs) .* 2 .- 1
-	
-    act_matrix = find_activations(elm.hidden_layer, x_mat)
-
-    output_weights = y_vec' * pinv(act_matrix)
+    elm.hidden_layer.weight_matrix =  rand(elm.hidden_layer.n_hidden_neurons, n_inputs) 
+	elm.hidden_layer.weight_matrix = 2.0 .*(elm.hidden_layer.weight_matrix)
+    # act_matrix = find_activations(elm.hidden_layer, x_mat)
+    act_matrix = elm.hidden_layer.act_func.(layer.weight_matrix * x .+ layer.bias_vector)
+    output_weights = pinv(act_matrix)* y_vec
+    # W_out = pinv(act_matrix)*y_vec
     elm.output_weights = output_weights
+    # elm.output_weights = W_out
+
 end
 
 function predict(elm::ExtremeLearningMachine,
