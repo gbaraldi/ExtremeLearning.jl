@@ -1,6 +1,5 @@
-using ExtremeLearning
 using Test
+using SafeTestsets
 
-@testset "ExtremeLearning.jl" begin
-    # Write your tests here.
-end
+@safetestset "bin_adder" begin include("bin_adder.jl") end
+@safetestset "constructor" begin include("constructor.jl") end
