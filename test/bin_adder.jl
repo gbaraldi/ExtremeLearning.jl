@@ -5,15 +5,15 @@ using ExtremeLearning
 
 const nhidden = 100
 
-x = [1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0]'
-y = [0.0 1.0; 1.0 0.0; 0.0 0.0; 1.0 0.0]'
+x = transpose([1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0])
+y = transpose([0.0 1.0; 1.0 0.0; 0.0 0.0; 1.0 0.0])
 
 
 elm = ELM(nhidden,x,y)
 fit!(elm, x, y)
 
-
-y_pred = predict(elm, [1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0]')
+new_x = transpose([1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0])
+y_pred = predict(elm, new_x)
 
 
 

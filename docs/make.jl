@@ -5,7 +5,7 @@ DocMeta.setdocmeta!(ExtremeLearning, :DocTestSetup, :(using ExtremeLearning); re
 
 makedocs(;
     modules=[ExtremeLearning],
-    authors="Gabriel Baraldi <baraldi@usp.br> and contributors",
+    authors="Gabriel Baraldi",
     repo="https://github.com/gbaraldi/ExtremeLearning.jl/blob/{commit}{path}#{line}",
     sitename="ExtremeLearning.jl",
     format=Documenter.HTML(;
@@ -15,6 +15,8 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Examples" => "examples.md",
+        "Functions" => "functions.md"
     ],
 )
 
