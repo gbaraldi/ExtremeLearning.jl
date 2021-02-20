@@ -3,17 +3,14 @@
 abstract type AbstractELM end
 
 """ 
-    sigmoid
+    sigmoid(x)
 Simple sigmoid function.
 """
 function sigmoid(x)
     # Sigmoid activation
     1 ./ (1 + exp(-x))
 end
-"""
 
-
-"""
 struct ELM{T,I, S<:AbstractArray{T}, F} <: AbstractELM
 
     n_hidden_neurons::I
@@ -24,7 +21,7 @@ struct ELM{T,I, S<:AbstractArray{T}, F} <: AbstractELM
     β::T 
 end
 """
-    ELM
+    ELM(n_hidden_neurons::Int,input_data::AbstractArray{T},output_data::AbstractArray{T}; activation::Function = sigmoid, regularization::T = zero(T)) where T<:AbstractFloat
 Construct an ELM passing a number of neuros, the inputs and outputs.
 
 As a keyword argument, you can also pass a different activation function (Default = sigmoid).
@@ -54,7 +51,7 @@ function ELM(n_hidden_neurons::Int,
 end
 
 """
-    fit
+    fit!(elm::AbstractELM, x::AbstractArray{T}, y::AbstractArray{T}) where T<:AbstractFloat
 Train the output weights using the pseudo-inverse.
 """
 function fit!(elm::AbstractELM,
@@ -66,7 +63,7 @@ function fit!(elm::AbstractELM,
     nothing
 end
 """
-    predict
+    predict(elm::AbstractELM, x::AbstractArray{T}) where T<:AbstractFloat
 Predict new values using the trained ELM
 """
 function predict(elm::AbstractELM,
