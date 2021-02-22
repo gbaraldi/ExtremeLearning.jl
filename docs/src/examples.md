@@ -6,8 +6,8 @@ The data must be in the format of rows for each input feature and columns for ea
 
 ### Data for training the model.
 ```julia
-x = transpose([1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0])
-y = transpose([0.0 1.0; 1.0 0.0; 0.0 0.0; 1.0 0.0])
+x = [1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0]
+y = [0.0 1.0; 1.0 0.0; 0.0 0.0; 1.0 0.0]
 ```
 
 
@@ -30,6 +30,6 @@ fit!(elm,x,y)
 To predict new values just pass a new array of input in the same format as before.
 
 ```julia
-new_x = transpose([1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0])
+new_x = [1.0 1.0; 0.0 1.0; 0.0 0.0; 1.0 0.0]
 y_pred = predict(elm, new_x)
 ```
