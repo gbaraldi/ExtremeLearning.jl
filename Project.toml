@@ -1,10 +1,11 @@
 name = "ExtremeLearning"
 uuid = "c95f448f-dc0f-43b0-8158-a2e23540fc0b"
 authors = ["Gabriel Baraldi"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+NNlib = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
 
 [compat]
 julia = "1.5"
